@@ -4,6 +4,7 @@ from hybrid_swv_model.start_computation import start_computation
 from hybrid_swv_model import plot_data
 from hybrid_swv_model.store_results import move_files
 import numpy as np
+import cmcrameri.cm as cmc # scientific colourmap
 
 # CoTPP/CC
 

@@ -15,6 +15,7 @@ The class VFSWV inherits from the class SWV.
 import matplotlib.pyplot as plt
 from matplotlib.ticker import FormatStrFormatter
 import numpy as np
+import cmcrameri.cm as cmc # scientific colourmap
 
 from RedoxPySolid.activeLayer import ElectrochemicallyActiveLayer
 from RedoxPySolid.SWV import SWV
@@ -45,11 +46,11 @@ class VFSWV(SWV):
     __init__(self) -> None. Constructor method bulding the SWV instance attributes.
     visualize_colormap_2D(self,
                         fig_size = (6, 5),
-                        color_pallet = 'jet',
+                        color_pallet = cmc.batlow,
                         cbar_accuracy = "%.0f") -> None. Show visual representation of the VF-SWV colormap;
     visualize_colormap_3D(self,
                         fig_size = (6, 5),
-                        color_pallet = 'jet') -> None. Show 3D map of the VF-SWV response.
+                        color_pallet = cmc.batlow) -> None. Show 3D map of the VF-SWV response.
     """
     def __init__(self, surface_layer: ElectrochemicallyActiveLayer, 
                 vf_swv_input_params: dict,
@@ -112,7 +113,7 @@ class VFSWV(SWV):
         
     def visualize_colormap_2D(self,
                             fig_size = (6, 5),
-                            color_pallet = 'jet',
+                            color_pallet = cmc.batlow,
                             cbar_accuracy = "%.0f") -> None:
         """
         Builds a 2D map of the VF-SWV voltammogram.
@@ -123,7 +124,7 @@ class VFSWV(SWV):
         -----------
         self, class instance;
         fig_size = (6, 5), fugure size. Default value is used;
-        color_pallet = 'jet'; coloramp for the plotting;
+        color_pallet = cmc.batlow; coloramp for the plotting;
         cbar_accuracy = "%.0f", the number of significant digits on the colorbar;
 
         Returns:
@@ -158,7 +159,7 @@ class VFSWV(SWV):
     
     def visualize_colormap_3D(self,
                             fig_size = (6, 5),
-                            color_pallet = 'jet') -> None:
+                            color_pallet = cmc.batlow) -> None:
         """
         Builds a 3D map of the VF-SWV voltammogram.
         Important: for the sake of convenience the currents are always displayed as positive values
@@ -168,7 +169,7 @@ class VFSWV(SWV):
         -----------
         self, class instance;
         fig_size = (6, 5), fugure size. Default value is used;
-        color_pallet = 'jet'; coloramp for the plotting;
+        color_pallet = cmc.batlow; coloramp for the plotting;
 
         Returns:
         --------

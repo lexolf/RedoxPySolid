@@ -3,6 +3,7 @@ import numpy as np
 import glob as gb
 from scipy.interpolate import interp1d
 from matplotlib.ticker import FormatStrFormatter
+import cmcrameri.cm as cmc # scientific colourmap
 import os
 
 
@@ -42,7 +43,7 @@ def plot_two_d_corrected(path, fig_name=None):
 
     fig, ax = plt.subplots(1, 1, figsize=(6, 5))
 
-    cont = plt.contourf(x, y, z3, 200, cmap='jet')
+    cont = plt.contourf(x, y, z3, 200, cmap=cmc.batlow)
 
     ax.set_xlabel('log[$f$(Hz)]', weight='bold')
 
@@ -88,7 +89,7 @@ def plot_two_d_corrected(path, fig_name=None):
 #     fig = plt.figure(figsize=(6, 5))
 #     ax = fig.gca(projection="3d")
 #
-#     surf = ax.plot_surface(x, y, z3, cmap='jet')
+#     surf = ax.plot_surface(x, y, z3, cmap=cmc.batlow)
 #     ax.set_xlabel('log[$f$(Hz)]', weight='bold')
 #     ax.set_ylabel('E, V vs NHE', weight='bold')
 #     ax.xaxis.set_major_formatter(FormatStrFormatter('%.1f'))
@@ -123,7 +124,7 @@ def plot_two_d_corrected(path, fig_name=None):
 #     plt.rc('font', **font)
 #
 #     fig, ax = plt.subplots(1, 1, figsize=(6, 5))
-#     cont = plt.contourf(x, y, z3, 300, cmap='jet')
+#     cont = plt.contourf(x, y, z3, 300, cmap=cmc.batlow)
 #     ax.set_xlabel('log[$f$(Hz)]', weight='bold')
 #     ax.set_ylabel('E, V vs NHE', weight='bold')
 #     ax.xaxis.set_major_formatter(FormatStrFormatter('%.1f'))
@@ -158,7 +159,7 @@ def plot_two_d_corrected(path, fig_name=None):
 #     plt.rc('font', **font)
 #     fig = plt.figure(figsize=(6, 5))
 #     ax = fig.gca(projection="3d")
-#     surf = ax.plot_surface(x, y, z3, cmap='jet')
+#     surf = ax.plot_surface(x, y, z3, cmap=cmc.batlow)
 #     ax.set_xlabel('log[$f$(Hz)]', weight='bold')
 #     ax.set_ylabel('E, V vs NHE', weight='bold')
 #     ax.xaxis.set_major_formatter(FormatStrFormatter('%.3f'))

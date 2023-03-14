@@ -3,6 +3,7 @@ import numpy as np
 import glob as gb
 from scipy.interpolate import interp1d
 from matplotlib.ticker import FormatStrFormatter
+import cmcrameri.cm as cmc # scientific colourmap
 import os
 
 e_start = np.loadtxt(os.getcwd() + r"\swv_input_params/" + "e_start.txt")
@@ -36,7 +37,7 @@ def two_d_plot(k):
     plt.rc('font', **font)
 
     fig, ax = plt.subplots(1, 1, figsize=(6, 5))
-    cont = plt.contourf(x, y, z3, 300, cmap='jet')
+    cont = plt.contourf(x, y, z3, 300, cmap=cmc.batlow)
     ax.set_xlabel('log[$f$(Hz)]', weight='bold')
     ax.set_ylabel('E, V vs NHE', weight='bold')
     ax.xaxis.set_major_formatter(FormatStrFormatter('%.1f'))
